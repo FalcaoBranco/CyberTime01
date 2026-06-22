@@ -6,42 +6,24 @@ using System.Threading.Tasks;
 
 namespace CyberTime01
 {
+    // Classe de modelo que define as propriedades estruturais da entidade Cliente.
     internal class ClienteModel
     {
-        private string _cpf;
-        private string _nome;
-        private decimal _saldoPrePago;
+        // Chave primária unívoca identificadora do cliente no sistema (CPF)
+        public string Cpf { get; set; }
 
-        public string Cpf
-        {
-            get { return _cpf; }
-            set { _cpf = value; }
-        }
+        // Nome completo do cliente cadastrado
+        public string Nome { get; set; }
 
-        public string Nome
-        {
-            get { return _nome; }
-            set { _nome = value; }
-        }
+        // Tipo alterado para decimal para armazenar os créditos monetários com precisão
+        public decimal SaldoPrePago { get; set; }
 
-        public decimal SaldoPrePago
-        {
-            get { return _saldoPrePago; }
-            set { _saldoPrePago = value; }
-        }
-
-        public ClienteModel(string cpf, string nome, decimal saldoPrePago)
-        {
-            this._cpf = cpf;
-            this._nome = nome;
-            this._saldoPrePago = saldoPrePago;
-        }
-
+        // Construtor padrão para inicializar o objeto e prevenir erros de referência nula
         public ClienteModel()
         {
-            this._cpf = "";
-            this._nome = "";
-            this._saldoPrePago = 0;
+            this.Cpf = string.Empty;
+            this.Nome = string.Empty;
+            this.SaldoPrePago = 0.00m;
         }
     }
 }
