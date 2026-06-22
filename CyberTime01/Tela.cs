@@ -8,35 +8,27 @@ namespace CyberTime01
 {
     public class Tela
     {
-        //
-        // atributos
-        //
+        
         private ConsoleColor _corFundo;
         private ConsoleColor _corTexto;
 
 
 
 
-        //
-        // métodos
-        //
-
-        // método construtor 
-        // recebe valores iniciais das cores de fundo e texto
+        
         public Tela(ConsoleColor cf, ConsoleColor ct)
         {
             this._corFundo = cf;
             this._corTexto = ct;
         }
 
-        // método construtor sobrecarregado
+       
         public Tela() { }
 
 
 
 
-        // método PrepararTela
-        // limpa a tela e prepara para impressão de dados
+        
         public void PrepararTela(string titulo, int ci, int li, int cf, int lf)
         {
             Console.BackgroundColor = this._corFundo;
@@ -46,8 +38,7 @@ namespace CyberTime01
             this.Centralizar(ci, cf, li + 1, titulo);
         }
 
-        // método Centralizar
-        // centraliza uma mensagem em determinada linha
+        
         public void Centralizar(int ci, int cf, int linha, string texto)
         {
             int coluna = ci + ((cf - ci - texto.Length) / 2);
@@ -56,8 +47,7 @@ namespace CyberTime01
         }
 
 
-        // método Perguntar
-        // faz uma pergunta ao usuário
+       
         public string Perguntar(string pergunta, int linha, int ci, int cf)
         {
             string resp;
@@ -68,8 +58,7 @@ namespace CyberTime01
             return resp.ToLower();
         }
 
-        // método LimparArea
-        // limpa uma área retangular da tela
+        
         public void LimparArea(int ci, int li, int cf, int lf)
         {
             for (int x = ci; x <= cf; x++)
@@ -82,50 +71,49 @@ namespace CyberTime01
             }
         }
 
-        // método MontarMoldura
-        // desenha uma moldura retangular na tela
+       
         public void MontarMoldura(int ci, int li, int cf, int lf)
         {
             int linha, coluna;
 
-            // pede para limpar a area antes de desenhar a moldura
+           
             this.LimparArea(ci, li, cf, lf);
 
-            // desenha as bordas horizontais
+            
             for (coluna = ci; coluna <= cf; coluna++)
             {
                 Console.SetCursorPosition(coluna, li);
                 Console.Write('═');
 
                 Console.SetCursorPosition(coluna, lf);
-                Console.Write('═'); // 205
+                Console.Write('═');
             }
 
-            // desenha as bordas verticais
+           
             for (linha = li; linha <= lf; linha++)
             {
                 Console.SetCursorPosition(ci, linha);
                 Console.Write("║");
 
                 Console.SetCursorPosition(cf, linha);
-                Console.Write("║"); // 186
+                Console.Write("║"); 
             }
 
-            // desenha o canto superior esquerdo
+            
             Console.SetCursorPosition(ci, li);
-            Console.Write('╔'); // 201
+            Console.Write('╔'); 
 
-            // desenha o canto superior direito
+            
             Console.SetCursorPosition(cf, li);
-            Console.Write('╗'); // 187
+            Console.Write('╗');
 
-            // desenha o canto inferior esquerdo
+            
             Console.SetCursorPosition(ci, lf);
-            Console.Write('╚'); // 200
+            Console.Write('╚'); 
 
-            // desenha o canto inferior direito
+            
             Console.SetCursorPosition(cf, lf);
-            Console.Write('╝'); // 188
+            Console.Write('╝'); 
         }
 
 
